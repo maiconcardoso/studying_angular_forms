@@ -7,8 +7,15 @@ import { Component } from '@angular/core';
 })
 export class TemplateFormComponent {
 
+  usuario: any = {
+    nome: "Maicon",
+    email: "maicon@email.com"
+  }
+
+
   onSubmit(form: any){
     console.log(form);
+    console.log(this.usuario);
   }
 
 }

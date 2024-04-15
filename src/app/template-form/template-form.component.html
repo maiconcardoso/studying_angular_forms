@@ -1,8 +1,11 @@
 <form #f="ngForm" (ngSubmit)="onSubmit(f)">
   <div class="mb-3">
     <label for="nome" class="form-label">Nome</label>
-    <input type="text" required class="form-control" id="nome" placeholder="Nome" name="nome"
+    <input type="text" required #nome="ngModel" class="form-control" id="nome" placeholder="Nome" name="nome"
       [(ngModel)]="usuario.nome">
+      <div class="alert alert-danger" role="alert" *ngIf="!nome.valid && nome.touched">
+        O nome é obrigatório.
+      </div>
   </div>
   <div class="mb-3">
     <label for="email" class="form-label">Email</label>

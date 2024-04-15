@@ -10,9 +10,12 @@
   <div class="mb-3">
     <label for="email" class="form-label">Email</label>
     <input type="email" required class="form-control" id="email" placeholder="name@example.com" name="email"
-      [(ngModel)]="usuario.email" email>
+      [(ngModel)]="usuario.email" email #email="ngModel">
+      <div class="alert alert-danger" role="alert" *ngIf="!email.valid && nome.touched">
+        Email inválido.
+      </div>
   </div>
   <div class="mb-3">
-    <button type="submit" class="btn btn-primary">Enviar</button>
+    <button [disabled]="!f.valid" type="submit" class="btn btn-primary">Enviar</button>
   </div>
 </form>

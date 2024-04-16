@@ -25,7 +25,8 @@
 
     <div class="col-md-3">
       <label for="cep" class="form-label">CEP</label>
-      <input type="text" class="form-control" id="cep" name="cep" [(ngModel)]="usuario.endereco.cep" #cep="ngModel" required>
+      <input type="text" class="form-control" id="cep" name="cep" ngModel #cep="ngModel"
+        (blur)="consultaCEP($any($event.target).value)" required>
       <div class="alert alert-danger" role="alert" *ngIf="!cep.valid && cep.touched">
         CEP é obrigatório.
       </div>
@@ -33,21 +34,22 @@
 
     <div class="col-md-3">
       <label for="numero" class="form-label">Número</label>
-      <input type="number" class="form-control" id="numero" name="numero" [(ngModel)]="usuario.endereco.numero" #numero="ngModel"
-        required>
+      <input type="number" class="form-control" id="numero" name="numero" [(ngModel)]="usuario.endereco.numero"
+        #numero="ngModel" required>
       <div class="alert alert-danger" role="alert" *ngIf="!numero.valid && numero.touched">
         O Número é obrigatório.
       </div>
     </div>
     <div class="col-md-6">
       <label for="complemento" class="form-label">Complemento</label>
-      <input type="text" class="form-control" id="inputAddress" name="complemento" [(ngModel)]="usuario.endereco.complemento"
-        #complemento="ngModel">
+      <input type="text" class="form-control" id="inputAddress" name="complemento"
+        [(ngModel)]="usuario.endereco.complemento" #complemento="ngModel">
     </div>
 
     <div class="col-12">
       <label for="rua" class="form-label">Rua</label>
-      <input type="text" class="form-control" id="rua" name="rua" required [(ngModel)]="usuario.endereco.rua" #rua="ngModel">
+      <input type="text" class="form-control" id="rua" name="rua" required [(ngModel)]="usuario.endereco.rua"
+        #rua="ngModel">
     </div>
 
     <div class="col-md-6">

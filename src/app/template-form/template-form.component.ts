@@ -7,6 +7,10 @@ import { Component } from '@angular/core';
 })
 export class TemplateFormComponent {
 
+  constructor() {
+
+  }
+
   usuario: any = {
     nome: null,
     email: null,
@@ -25,6 +29,10 @@ export class TemplateFormComponent {
   onSubmit(form: any){
     console.log(form);
     //console.log(this.usuario);
+  }
+
+  consultaCEP(cep: any) {
+
   }
 
 }

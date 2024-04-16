@@ -1,20 +1,72 @@
-<form #f="ngForm" (ngSubmit)="onSubmit(f)">
+<form #f="ngForm" (ngSubmit)="onSubmit(f)" class="form-horizontal row g-3">
   <div class="mb-3">
-    <label for="nome" class="form-label">Nome</label>
+    <div class="col-md-12">
+      <label for="nome" class="form-label">Nome</label>
+    </div>
     <input type="text" required #nome="ngModel" class="form-control" id="nome" placeholder="Nome" name="nome"
       [(ngModel)]="usuario.nome">
-      <div class="alert alert-danger" role="alert" *ngIf="!nome.valid && nome.touched">
-        O nome é obrigatório.
-      </div>
+    <div class="alert alert-danger" role="alert" *ngIf="!nome.valid && nome.touched">
+      O nome é obrigatório.
+    </div>
   </div>
+
   <div class="mb-3">
-    <label for="email" class="form-label">Email</label>
-    <input type="email" required class="form-control" id="email" placeholder="name@example.com" name="email"
-      [(ngModel)]="usuario.email" email #email="ngModel">
+    <div class="col-md-12">
+      <label for="email" class="form-label">Email</label>
+      <input type="email" required class="form-control" id="email" placeholder="name@example.com" name="email"
+        [(ngModel)]="usuario.email" email #email="ngModel">
       <div class="alert alert-danger" role="alert" *ngIf="!email.valid && nome.touched">
         Email inválido.
       </div>
+    </div>
   </div>
+
+  <div class="form-horizontal row g-3" ngModelGroup="endereco">
+
+    <div class="col-md-3">
+      <label for="cep" class="form-label">CEP</label>
+      <input type="text" class="form-control" id="cep" name="cep" [(ngModel)]="usuario.endereco.cep" #cep="ngModel" required>
+      <div class="alert alert-danger" role="alert" *ngIf="!cep.valid && cep.touched">
+        CEP é obrigatório.
+      </div>
+    </div>
+
+    <div class="col-md-3">
+      <label for="numero" class="form-label">Número</label>
+      <input type="number" class="form-control" id="numero" name="numero" [(ngModel)]="usuario.endereco.numero" #numero="ngModel"
+        required>
+      <div class="alert alert-danger" role="alert" *ngIf="!numero.valid && numero.touched">
+        O Número é obrigatório.
+      </div>
+    </div>
+    <div class="col-md-6">
+      <label for="complemento" class="form-label">Complemento</label>
+      <input type="text" class="form-control" id="inputAddress" name="complemento" [(ngModel)]="usuario.endereco.complemento"
+        #complemento="ngModel">
+    </div>
+
+    <div class="col-12">
+      <label for="rua" class="form-label">Rua</label>
+      <input type="text" class="form-control" id="rua" name="rua" required [(ngModel)]="usuario.endereco.rua" #rua="ngModel">
+    </div>
+
+    <div class="col-md-6">
+      <label for="bairro" class="form-label">Bairro</label>
+      <input type="text" class="form-control" id="bairro" name="bairro" required [(ngModel)]="usuario.endereco.bairro"
+        #bairro="ngModel">
+    </div>
+    <div class="col-md-4">
+      <label for="cidade" class="form-label">Cidade</label>
+      <input type="text" class="form-control" id="cidade" name="cidade" required [(ngModel)]="usuario.endereco.cidade"
+        #cidade="ngModel">
+    </div>
+    <div class="col-md-2">
+      <label for="estado" class="form-label">Estado</label>
+      <input type="text" class="form-control" id="estado" name="estado" required [(ngModel)]="usuario.endereco.estado"
+        #estado="ngModel">
+    </div>
+  </div>
+
   <div class="mb-3">
     <button [disabled]="!f.valid" type="submit" class="btn btn-primary">Enviar</button>
   </div>

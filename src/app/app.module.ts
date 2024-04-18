@@ -16,7 +16,7 @@ import { DataFormModule } from './data-form/data-form.module';
     FormsModule,
     AppRoutingModule,
     TemplateFormModule,
-    DataFormModule
+    DataFormModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

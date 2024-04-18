@@ -1,1 +1,29 @@
-<p>data-form works!</p>
+<form class="form-horizontal row g-3" [formGroup]="formulario">
+  <div class="mb-3">
+    <div class="col-md-12">
+      <label for="nome" class="form-label">Nome</label>
+    </div>
+    <input type="text" required class="form-control" id="nome" placeholder="Nome" formControlName="nome">
+   <!--  <div class="alert alert-danger" role="alert">
+      O nome é obrigatório.
+    </div> -->
+  </div>
+
+  <div class="mb-3">
+    <div class="col-md-12">
+      <label for="email" class="form-label">Email</label>
+      <input type="email" required class="form-control" id="email" placeholder="name@example.com" formControlName="email"
+         email>
+    <!--   <div class="alert alert-danger" role="alert">
+        Email inválido.
+      </div> -->
+    </div>
+  </div>
+
+
+  <div class="mb-3">
+    <button type="submit" class="btn btn-primary">Enviar</button>
+  </div>
+
+  <app-form-debug [form]="formulario"></app-form-debug>
+</form>
